@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            transition: 1s;
+        }
+
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 30rem;
+            height: 15rem;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 40px;        
+            box-shadow: 5px 8px #cfc7c7;
+            background-color: white;
+            text-align: center;
+
+        }
+        button{
+            margin-top: 5px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 1px;
+            display: block;
+            font-size: 35px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <h2 id="color-code">#fff</h2>
+        <button id="btn">Click Me</button>
+    </div>
+</div> 
+    
+</body>
+<script>
+    const getColor = () => {
+        console.log("Working");
+        const randomNumber = Math.floor(Math.random() * 16777235);
+        const randomCode = "#" + randomNumber.toString(16);
+        document.body.style.backgroundColor = randomCode;
+        document.getElementById("color-code").innerText = randomCode;
+        navigator.clipboard.writeText(randomCode)
+    }
+    document.getElementById("btn").addEventListener(
+        "click",()=>{
+            
+        console.log("Hello");
+        getColor()
+        }
+    )
+
+    getColor();
+
+</script>
+</html>
